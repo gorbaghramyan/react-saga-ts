@@ -8,17 +8,16 @@ import {
 	ListGroupItem,
 } from "react-bootstrap";
 import { connect } from "react-redux";
-
-import "./App.css";
 import {
 	deleteTodo,
 	markComplete,
 	markIncomplete,
 	createTodo,
 	getTodos,
-} from "action/";
-import storeType, { todo } from "types/storeType";
+} from "redux/actions";
+import storeType, { todo } from "./../types/storeType";
 import AppPropType from "./AppPropType";
+
 
 const App: React.FC<AppPropType> = ({
 	todos,
@@ -45,10 +44,8 @@ const App: React.FC<AppPropType> = ({
 	const renderTodos = () => {
 		let complete: todo[] = [];
 		let inComplete: todo[] = [];
-		todos.forEach((todo) => {
-			if (todo.isCompleted) complete.push(todo);
-			else inComplete.push(todo);
-		});
+		todos.forEach((todo) => todo.isCompleted ? complete.push(todo) : inComplete.push(todo));
+
 		return (
 			<>
 				<ListGroup variant="flush" className="m-2">
