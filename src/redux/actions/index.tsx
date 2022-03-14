@@ -5,37 +5,38 @@ import {
 	createTodoActionCreator,
 	getTodosActionCreator,
 } from "types/actionCreatorTypes";
+import { actionIds } from "types/actionsType";
 
 export const markComplete: markCompleteActionCreator = (id) => {
 	return {
-		type: "MARK_COMPLETE",
+		type: actionIds.MARK_COMPLETE,
 		id,
 	};
 };
 
 export const markIncomplete: markIncompleteActionCreator = (id) => {
 	return {
-		type: "MARK_INCOMPLETE",
+		type: actionIds.MARK_INCOMPLETE,
 		id,
 	};
 };
 
 export const deleteTodo: deleteTodoActionCreator = (id) => {
 	return {
-		type: "DELETE_TODO",
+		type: actionIds.DELETE_TODO,
 		id,
 	};
 };
 
 export const createTodo: createTodoActionCreator = (title) => {
 	return {
-		type: "CREATE_TODO",
+		type: actionIds.CREATE_TODO,
 		title,
 	};
 };
 
 export const getTodos: getTodosActionCreator = () => {
 	return {
-		type: "GET_TODOS",
+		type: actionIds.GET_TODOS,
 	};
 };

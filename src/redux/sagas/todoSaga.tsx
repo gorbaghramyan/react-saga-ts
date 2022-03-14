@@ -33,7 +33,7 @@ function* createTodoWorker({ title }: createTodoAction) {
 		switch (response.status) {
 			case 201:
 				const data: createdTodoAction = {
-					type: "CREATED_TODO",
+					type: actionIds.CREATED_TODO,
 					todo: response.data.data.todo,
 				};
 				yield put(data);
@@ -47,7 +47,7 @@ function* deleteTodoWorker({ id }: deleteTodoAction) {
 		switch (response.status) {
 			case 200:
 				const data: deletedTodoAction = {
-					type: "DELETED_TODO",
+					type: actionIds.DELETED_TODO,
 					id,
 				};
 				yield put(data);
@@ -63,7 +63,7 @@ function* markCompleteWorker({ id }: markCompleteAction) {
 		switch (response.status) {
 			case 200:
 				const data: markedCompleteAction = {
-					type: "MARKED_COMPLETE",
+					type: actionIds.MARKED_COMPLETE,
 					id,
 				};
 				yield put(data);
@@ -79,7 +79,7 @@ function* markIncompleteWorker({ id }: markIncompleteAction) {
 		switch (response.status) {
 			case 200:
 				const data: markedIncompleteAction = {
-					type: "MARKED_INCOMPLETE",
+					type: actionIds.MARKED_INCOMPLETE,
 					id,
 				};
 				yield put(data);
@@ -93,7 +93,7 @@ function* getTodosWorker() {
 		switch (response.status) {
 			case 200:
 				const data: gotTodos = {
-					type: "GOT_TODOS",
+					type: actionIds.GOT_TODOS,
 					todos: response.data.data.todos,
 				};
 				yield put(data);

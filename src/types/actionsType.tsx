@@ -2,59 +2,64 @@ import { todo } from "types/storeType";
 
 // For Action Creator
 export interface markCompleteAction {
-	type: "MARK_COMPLETE";
+	type: actionIds.MARK_COMPLETE;
 	id: string;
 }
 
 export interface markIncompleteAction {
-	type: "MARK_INCOMPLETE";
+	type: actionIds.MARK_INCOMPLETE;
 	id: string;
 }
 
 export interface deleteTodoAction {
-	type: "DELETE_TODO";
+	type: actionIds.DELETE_TODO;
 	id: string;
 }
 
 export interface createTodoAction {
-	type: "CREATE_TODO";
+	type: actionIds.CREATE_TODO;
 	title: string;
 }
 
 export interface getTodos {
-	type: "GET_TODOS";
+	type: actionIds.GET_TODOS;
 }
 
 // For Reducers
 export interface createdTodoAction {
-	type: "CREATED_TODO";
+	type: actionIds.CREATED_TODO;
 	todo: todo;
 }
 
 export interface deletedTodoAction {
-	type: "DELETED_TODO";
+	type: actionIds.DELETED_TODO;
 	id: string;
 }
 
 export interface markedCompleteAction {
-	type: "MARKED_COMPLETE";
+	type: actionIds.MARKED_COMPLETE;
 	id: string;
 }
 
 export interface markedIncompleteAction {
-	type: "MARKED_INCOMPLETE";
+	type: actionIds.MARKED_INCOMPLETE;
 	id: string;
 }
 
 export interface gotTodos {
-	type: "GOT_TODOS";
+	type: actionIds.GOT_TODOS;
 	todos: todo[];
 }
 
-export const actionIds = {
-	MARK_COMPLETE: "MARK_COMPLETE",
-	MARK_INCOMPLETE: "MARK_INCOMPLETE",
-	DELETE_TODO: "DELETE_TODO",
-	CREATE_TODO: "CREATE_TODO",
-	GET_TODOS: "GET_TODOS",
+export enum actionIds {
+	MARK_COMPLETE = "MARK_COMPLETE",
+	MARK_INCOMPLETE = "MARK_INCOMPLETE",
+	DELETE_TODO = "DELETE_TODO",
+	CREATE_TODO = "CREATE_TODO",
+	GET_TODOS = "GET_TODOS",
+	CREATED_TODO = "CREATED_TODO",
+	DELETED_TODO = "DELETED_TODO",
+	MARKED_COMPLETE = "MARKED_COMPLETE",
+	MARKED_INCOMPLETE = "MARKED_INCOMPLETE",
+	GOT_TODOS = "GOT_TODOS"
 };
